@@ -9,7 +9,7 @@ class App extends React.PureComponent<{ }, { }> {
     render( ) {
         return <div>
             <h1>Welcome!</h1>
-            <Link to="/couter" >计数器</Link>
+            <Link to="/couter" >计数器1</Link>
             { this.props.children }
         </div>
     }

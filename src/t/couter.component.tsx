@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './couter.style.css';
 
 
 
@@ -9,7 +10,7 @@ export default class Counter extends React.PureComponent< IProp, IState >{
     constructor( ) {
         super( );
         this.state = {
-            count: 1
+            count: 2
         }
     }
 
@@ -17,7 +18,11 @@ export default class Counter extends React.PureComponent< IProp, IState >{
         let { count } = this.state;
         this.setState({
             count: ++count
-        })
+        });
+        require.ensure([],function(require){
+            let a = require('./ensure');
+            a.test( )
+        });
     }
 
     del = ( ) => {
@@ -30,7 +35,7 @@ export default class Counter extends React.PureComponent< IProp, IState >{
     render( ) {
         let { count } = this.state;
         return <div>
-            <h3>{ count }</h3>
+            <h3 className="title">{ count }</h3>
             <button onClick={this.add}>+</button>
             <button onClick={this.del}>-</button>
         </div>
